@@ -1,5 +1,6 @@
 import tkinter as tk
 from PIL import ImageTk
+from tkinter import messagebox
 
 # Define variable for app background color
 appBackgroundColor = "#EC00FF"
@@ -13,14 +14,22 @@ def setInitialPosition(appToSetToCenter):
     # Set app position
     appToSetToCenter.geometry('500x600+' + str(xAxis) + '+' + str(yAxis))
 
+# printModalMessage -> Shows a modal window to the user with a static message
 def printModalMessage():
-    print("A bard throws an apple to a guard and everything explodes")
-
+    infoMessageModal = messagebox.showinfo(
+        title="Info modal message",
+        message="A bard throws an apple to a guard and everything explodes"
+    )
 
 # setAppFrameLogo -> Defines base logo for the app
 def setAppFrameLogo(appFrameToSetLogo):
     appFrameLogo = ImageTk.PhotoImage(file="assets\logo-bard.png")
-    appFrameLogoWidget = tk.Label(appFrameToSetLogo, image=appFrameLogo, bg=appBackgroundColor)
+    appFrameLogoWidget = tk.Label(
+        appFrameToSetLogo, 
+        image=appFrameLogo, 
+        bg=appBackgroundColor
+    )
+    
     appFrameLogoWidget.image = appFrameLogo
     appFrameLogoWidget.pack()
 
