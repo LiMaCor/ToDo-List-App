@@ -13,24 +13,41 @@ def setInitialPosition(appToSetToCenter):
     # Set app position
     appToSetToCenter.geometry('500x600+' + str(xAxis) + '+' + str(yAxis))
 
+# setAppFrameLogo -> Defines base logo for the app
+def setAppFrameLogo(appFrameToSetLogo):
+    appFrameLogo = ImageTk.PhotoImage(file="assets\logo-bard.png")
+    appFrameLogoWidget = tk.Label(appFrameToSetLogo, image=appFrameLogo, bg=appBackgroundColor)
+    appFrameLogoWidget.image = appFrameLogo
+    appFrameLogoWidget.pack()
+
+# setAppFrameSlogan -> Defines a static base slogan for the app
+def setAppFrameSlogan(appFrameToSetSlogan):
+    appFrameSlogan = tk.Label(
+        appFrameToSetSlogan,
+        text="Bard's inspiration intensifies!",
+        bg=appBackgroundColor,
+        fg="white",
+        font=("TkMenuFont", 14)
+    )
+
+    appFrameSlogan.pack()
+
+# setAppFrame -> Defines basic structure for the app
+def setAppFrame(appToInitStructure):
+    appFrame = tk.Frame(appToInitStructure, width=500, height=600, bg=appBackgroundColor)
+    appFrame.grid(row=0, column=0)
+    appFrame.pack_propagate(False)
+    
+    setAppFrameLogo(appFrame)
+    setAppFrameSlogan(appFrame)
+
 # Init app
 root = tk.Tk()
 
 # App settings
 root.title("Bardo app")
 setInitialPosition(appToSetToCenter = root)
-
-# Initial app structure settings
-initialFrame = tk.Frame(root, width=500, height=600, bg=appBackgroundColor)
-initialFrame.grid(row=0, column=0)
-initialFrame.pack_propagate(False)
-
-# Set widgets to initial frame
-initialFrameLogo = ImageTk.PhotoImage(file="assets\logo-bard.png")
-initialFrameLogoWidget = tk.Label(initialFrame, image=initialFrameLogo, bg=appBackgroundColor)
-initialFrameLogoWidget.image = initialFrameLogo
-
-initialFrameLogoWidget.pack()
+setAppFrame(appToInitStructure = root)
 
 # Run app
 root.mainloop()
