@@ -13,6 +13,10 @@ def setInitialPosition(appToSetToCenter):
     # Set app position
     appToSetToCenter.geometry('500x600+' + str(xAxis) + '+' + str(yAxis))
 
+def printModalMessage():
+    print("A bard throws an apple to a guard and everything explodes")
+
+
 # setAppFrameLogo -> Defines base logo for the app
 def setAppFrameLogo(appFrameToSetLogo):
     appFrameLogo = ImageTk.PhotoImage(file="assets\logo-bard.png")
@@ -32,6 +36,22 @@ def setAppFrameSlogan(appFrameToSetSlogan):
 
     appFrameSlogan.pack()
 
+# setAppFrameButton -> Defines a button which shows a modal message on click
+def setAppFrameButton(appFrameToSetButton):
+    appFrameButton = tk.Button(
+        appFrameToSetButton,
+        text="Request",
+        font=("TkHeadingFont", 20),
+        bg="#900C3F",
+        fg="white",
+        cursor="hand2",
+        activebackground="#badee2",
+        activeforeground="black",
+        command=lambda:printModalMessage()
+    )
+    
+    appFrameButton.pack()
+
 # setAppFrame -> Defines basic structure for the app
 def setAppFrame(appToInitStructure):
     appFrame = tk.Frame(appToInitStructure, width=500, height=600, bg=appBackgroundColor)
@@ -40,6 +60,7 @@ def setAppFrame(appToInitStructure):
     
     setAppFrameLogo(appFrame)
     setAppFrameSlogan(appFrame)
+    setAppFrameButton(appFrame)
 
 # Init app
 root = tk.Tk()
