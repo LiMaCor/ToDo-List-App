@@ -23,7 +23,7 @@ initialFrame.grid(row=0, column=0)
 
 # Set widgets to initial frame
 initialFrameLogo = ImageTk.PhotoImage(file="assets\logo-bard.png")
-initialFrameLogoWidget = tk.Label(initialFrame, image=initialFrameLogo)
+initialFrameLogoWidget = tk.Label(initialFrame, image=initialFrameLogo, bg="#EC00FF")
 initialFrameLogoWidget.image = initialFrameLogo
 
 initialFrameLogoWidget.pack()
