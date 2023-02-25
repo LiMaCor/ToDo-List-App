@@ -1,6 +1,9 @@
 import tkinter as tk
 from PIL import ImageTk
 
+# Define variable for app background color
+appBackgroundColor = "#EC00FF"
+
 # setInitialPosition -> Defines the initial position for an app passed as parameter
 def setInitialPosition(appToSetToCenter):
     # Set coordinates
@@ -18,13 +21,13 @@ root.title("Bardo app")
 setInitialPosition(appToSetToCenter = root)
 
 # Initial app structure settings
-initialFrame = tk.Frame(root, width=500, height=600, bg="#EC00FF")
+initialFrame = tk.Frame(root, width=500, height=600, bg=appBackgroundColor)
 initialFrame.grid(row=0, column=0)
 initialFrame.pack_propagate(False)
 
 # Set widgets to initial frame
 initialFrameLogo = ImageTk.PhotoImage(file="assets\logo-bard.png")
-initialFrameLogoWidget = tk.Label(initialFrame, image=initialFrameLogo, bg="#EC00FF")
+initialFrameLogoWidget = tk.Label(initialFrame, image=initialFrameLogo, bg=appBackgroundColor)
 initialFrameLogoWidget.image = initialFrameLogo
 
 initialFrameLogoWidget.pack()
