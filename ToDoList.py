@@ -20,6 +20,7 @@ setInitialPosition(appToSetToCenter = root)
 # Initial app structure settings
 initialFrame = tk.Frame(root, width=500, height=600, bg="#EC00FF")
 initialFrame.grid(row=0, column=0)
+initialFrame.pack_propagate(False)
 
 # Set widgets to initial frame
 initialFrameLogo = ImageTk.PhotoImage(file="assets\logo-bard.png")
